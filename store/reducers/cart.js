@@ -1,7 +1,5 @@
-import { addToCart } from '../actions/cart';
-
-import { ADD_TO_CART } from '../actions/cart';
-import CartItem from '../../models/cartItem';
+import { ADD_TO_CART } from "../actions/cart";
+import CartItem from "../../models/cartItem";
 
 const initialState = {
   items: {},
@@ -9,7 +7,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch (action) {
+  switch (action.type) {
     case ADD_TO_CART:
       const addedProduct = action.product;
       const productPrice = addedProduct.price;
@@ -40,8 +38,6 @@ export default (state = initialState, action) => {
           totalAmount: state.totalAmount + productPrice,
         };
       }
-      break;
-    default:
-      return state;
   }
+  return state;
 };
