@@ -10,6 +10,7 @@ import { Ionicons } from "@expo/vector-icons";
 import CartScreen from "../screens/shop/CartScreen";
 import ProductDetailScreen from "../screens/shop/ProductDetailScreen";
 import ProductOverviewScreen from "../screens/shop/ProductOverviewScreen";
+import OrdersScreen from "../screens/shop/OrdersScreen";
 
 const Stack = createStackNavigator();
 
@@ -47,10 +48,29 @@ function ShopNavigator(props) {
               </TouchableOpacity>
             </View>
           ),
+          headerLeft: () => (
+            <TouchableOpacity>
+              <Ionicons
+                name={Platform.OS === "android" ? "md-menu" : "ios-menu"}
+                size={23}
+                color={Platform.OS === "android" ? "white" : Colors.primary}
+                style={{ marginLeft: 10 }}
+                onPress={() => {
+                  navigation.toggleDrawer();
+                }}
+              />
+            </TouchableOpacity>
+          ),
         })}
       />
       <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
-      <Stack.Screen name="CartScreen" component={CartScreen} />
+      <Stack.Screen
+        name="CartScreen"
+        component={CartScreen}
+        options={{
+          title: "Your Cart",
+        }}
+      />
     </Stack.Navigator>
   );
 }

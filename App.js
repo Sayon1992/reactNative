@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
-import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
-import ShopNavigator from './navigation/ShopNavigator';
-import { NavigationContainer } from '@react-navigation/native';
-import { AppLoading } from 'expo';
-import * as Font from 'expo-font';
+import React, { useState } from "react";
+import { createStore, combineReducers } from "redux";
+import { Provider } from "react-redux";
 
-import productsReducer from './store/reducers/products';
-import cartReducer from './store/reducers/cart';
+import ShopDrawerNavigator from "./navigation/ShopDrawerNavigator";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { AppLoading } from "expo";
+import * as Font from "expo-font";
+
+import ordersReducer from "./store/reducers/orders";
+import productsReducer from "./store/reducers/products";
+import cartReducer from "./store/reducers/cart";
 
 const rootReducer = combineReducers({
   products: productsReducer,
   cart: cartReducer,
+  orders: ordersReducer,
 });
 
 const store = createStore(rootReducer);
 
 const fetchFonts = () => {
   return Font.loadAsync({
-    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
-    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
   });
 };
 
@@ -39,7 +43,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <ShopNavigator />
+        <ShopDrawerNavigator />
       </NavigationContainer>
     </Provider>
   );
