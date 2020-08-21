@@ -59,8 +59,7 @@ const ShopDrawerNavigator = () => {
   return (
     <StackDrawer.Navigator
       initialRouteName="Products"
-      drawerContentOptio
-      ns={{
+      drawerContentOptions={{
         activeTintColor: Colors.primary,
       }}
     >

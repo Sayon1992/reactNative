@@ -3,6 +3,7 @@ import { FlatList, Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import { debug } from "react-native-reanimated";
 import Order from "../../models/order";
+import OrderItem from "../../components/shop/OrderItem";
 
 const OrdersScreen = () => {
   const orders = useSelector((state) => state.orders.orders);
@@ -13,7 +14,12 @@ const OrdersScreen = () => {
         keyExtractor={(item) => item.id}
         renderItem={(itemData) => {
           console.log(itemData);
-          return <Text>{itemData.item.totalAmount}</Text>;
+          return (
+            <OrderItem
+              amount={itemData.item.totalAmount}
+              date={itemData.item.readableDate}
+            />
+          );
         }}
       />
     </View>
