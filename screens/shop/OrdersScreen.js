@@ -13,11 +13,11 @@ const OrdersScreen = () => {
         data={orders}
         keyExtractor={(item) => item.id}
         renderItem={(itemData) => {
-          console.log(itemData);
           return (
             <OrderItem
               amount={itemData.item.totalAmount}
               date={itemData.item.readableDate}
+              items={itemData.item.items}
             />
           );
         }}
