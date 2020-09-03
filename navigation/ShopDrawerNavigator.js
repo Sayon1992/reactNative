@@ -130,6 +130,7 @@ const AdminStackScreen = ({ navigation }) => {
                   if (route.params?.submit) {
                     const { submit } = route.params;
                     submit();
+                    navigation.goBack();
                   }
                 }}
               />

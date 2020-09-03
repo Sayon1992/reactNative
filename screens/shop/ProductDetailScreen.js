@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -6,10 +6,10 @@ import {
   Button,
   Image,
   ScrollView,
-} from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import Colors from '../../constants/Colors';
-import * as cardActions from '../../store/actions/cart';
+} from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import Colors from "../../constants/Colors";
+import * as cardActions from "../../store/actions/cart";
 
 const ProductDetailScreen = (props) => {
   const { productId } = props.route.params;
@@ -21,11 +21,6 @@ const ProductDetailScreen = (props) => {
     props.navigation.setOptions({
       headerTitle: productTitle,
     });
-    return () => {
-      props.navigation.setOptions({
-        headerTitle: null,
-      });
-    };
   }, []);
 
   const selectedProduct = useSelector((state) =>
@@ -52,25 +47,25 @@ const ProductDetailScreen = (props) => {
 
 const styles = StyleSheet.create({
   image: {
-    width: '100%',
+    width: "100%",
     height: 300,
   },
   price: {
     fontSize: 20,
-    color: '#888',
-    textAlign: 'center',
+    color: "#888",
+    textAlign: "center",
     marginVertical: 20,
-    fontFamily: 'open-sans-bold',
+    fontFamily: "open-sans-bold",
   },
   description: {
     fontSize: 14,
-    textAlign: 'center',
+    textAlign: "center",
     marginHorizontal: 20,
-    fontFamily: 'open-sans',
+    fontFamily: "open-sans",
   },
   actions: {
     marginVertical: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
 });
 

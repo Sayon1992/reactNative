@@ -15,14 +15,16 @@ const UserProductScreen = (props) => {
     Alert.alert(
       "Are you sure?",
       "Do you want to permanently delete this item?",
-      { text: "No", style: "default" },
-      {
-        text: "Yes",
-        style: "destructive",
-        onPress: () => {
-          dispatch(productActions.deleteProduct(id));
+      [
+        { text: "No", style: "default" },
+        {
+          text: "Yes",
+          style: "destructive",
+          onPress: () => {
+            dispatch(productActions.deleteProduct(id));
+          },
         },
-      }
+      ]
     );
   };
 
